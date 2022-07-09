@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float & Clear</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orelega+One&family=Square+Peg&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            /* font-family: 'Square Peg', cursive; */
+            font-family: 'Orelega One', cursive;
+            font-family: 'Square Peg', cursive;
+            font-size: large;
+        }
+
+        .container {
+            width: 800px;
+            border: 3px solid purple;
+            margin: 100px auto;
+            background-color: rgb(147, 242, 180);
+        }
+
+        .item {
+            border: 3px solid gray;
+            margin: 12px 3px;
+            padding: 12px 3px;
+            background-color: rgb(106, 151, 76);
+
+        }
+
+        #fruit {
+            float: left;
+            width: 48%;
+        }
+
+        #computer {
+            float: left;
+            width: 48%;
+        }
+
+        #stationary {
+            /* float: left; */
+            clear: both;
+            width: 100%;
+        }
+
+        p,
+        h1 {
+            /* text-align: right;
+            text-align: left;
+            text-align: center; */
+            text-align: justify;
+        }
+        h1{
+            margin: auto;
+            width: 355px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to my store</h1>
+        <div id="fruit" class="item">
+            <h4>Fruits</h4>
+            <p id="fp" class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corrupti facilis ab laudantium,
+                ipsam reprehenderit id. Consectetur iste ad consequuntur voluptas quia minus unde id ullam. Nesciunt ab
+                voluptas sequi doloremque non eos delectus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Culpa alias omnis voluptas quod? Aliquid, eligendi rem reiciendis tempore ipsum amet? Dolor autem
+                recusandae neque maiores, maxime temporibus? Debitis necessitatibus vitae sit omnis sint quibusdam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste porro nihil alias rerum voluptatum
+                eveniet vel aspernatur, laudantium consequatur, sed explicabo. Molestias pariatur minima quos fugit rem,
+                sint ducimus consectetur assumenda adipisci sequi.
+            </p>
+        </div>
+        <div id="computer" class="item">
+            <h4>Computer</h4>
+            <p id="cp" class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corrupti facilis ab laudantium,
+                ipsam reprehenderit id. Consectetur iste ad consequuntur voluptas quia minus unde id ullam. Nesciunt ab
+                voluptas sequi doloremque non eos delectu Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Ratione, tempore repellat voluptatibus nesciunt distinctio deleniti veritatis omnis nemo quo fugit eaque
+                ab. Quod tenetur natus architecto ad atque itaque facere consequuntur voluptate nostrum numquam. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Eos alias molestias quos, laboriosam veritatis quo
+                non. Aliquam mollitia, earum, impedit architecto enim esse nemo voluptatibus tempore, sint ab doloremque
+                laboriosam quisquam soluta. Voluptatem, natus?
+            </p>
+        </div>
+        <div id="stationary" class="item">
+            <h4>Station</h4>
+            <p id="sp" class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corrupti facilis ab laudantium,
+                ipsam reprehenderit id. Consectetur iste ad consequuntur voluptas quia minus unde id ullam. Nesciunt ab
+                voluptas sequi doloremque non eos delectus.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
