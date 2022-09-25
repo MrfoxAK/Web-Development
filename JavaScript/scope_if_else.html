@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>scope_if_else_switch_case</title>
+</head>
+<body>
+     <div>
+          <ul>
+               <li>Item-1</li>
+               <li>Item-2</li>
+               <li>Item-3</li>
+               <li>Item-4</li>
+               <li>Item-5</li>
+               <li>Item-6</li>
+               <li>Item-7</li>
+          </ul>
+     </div>
+     <script>
+          var str = "This is a string";
+          var str = "This is a string2";
+          console.log(str);
+          let a = "You";
+          {
+               let a = "You1";
+               console.log(a);
+          }
+          console.log(a);
+
+          const a1 = "This can't be changed";
+          // a1 = "this s";
+          console.log(a1);
+
+          let age = 2;
+          if(age>18){
+               console.log("you can drink");
+          }
+          else if(age==2){
+               console.log("Age is 2");
+          }
+          else{
+               console.log("You can't drink water");
+          }
+
+          const cup = 45;
+          switch (cup) {
+               case 4:
+                    console.log("this is 4");
+                    break;
+               case 45:
+                    console.log("this is 45");
+                    break;
+               default:
+                    break;
+          }
+     </script>
+</body>
+</html>
