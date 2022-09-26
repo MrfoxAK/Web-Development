@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Events</title>
+</head>
+<style>
+     #btn{
+          padding: 10px 14px;
+          background-color: blueviolet;
+          border: 2px solid black;
+          color: rgb(142, 38, 38);
+          font-weight: bold;
+          border-radius: 8px;
+          cursor: pointer;
+     }
+</style>
+<body>
+     Browser events;
+     click
+     contexmenu
+     mouseover
+     mousedown/mouseup
+     mousemove
+
+     submit
+     focus
+
+     <div id="para" class="container">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ab dignissimos corporis itaque dolore praesentium, quod impedit, quo ut, aut nisi ducimus maxime. Perspiciatis repellat vitae, iure, blanditiis minima ratione eos aut, voluptate eligendi laudantium sint? Facilis eius assumenda labore vero ratione ducimus mollitia, obcaecati optio, sapiente libero necessitatibus laboriosam odio doloremque ea omnis dolor molestiae praesentium nisi totam neque quaerat distinctio? Beatae modi unde maiores perferendis nemo repudiandae labore harum sit maxime eius assumenda molestiae fuga ullam dolorem non qui ab, aliquam cupiditate iste, est quis aspernatur. Nostrum blanditiis modi porro laborum quasi nihil dolor nesciunt. Impedit eos temporibus facilis sequi modi, quis alias quam iure pariatur, eum distinctio. Consequuntur quod exercitationem saepe veritatis ea dolorem eius esse soluta, sed architecto commodi qui obcaecati impedit harum doloribus fuga facilis pariatur corrupti molestias, beatae eligendi minus autem error magni! Aliquam ex dolorem totam iure impedit esse explicabo sit sed alias repellat? Esse vel voluptatem odio voluptatibus nostrum unde quae! Ipsam veritatis provident harum doloribus quidem, nulla minima, veniam eius asperiores quos repellat, molestiae quisquam dolorum! Quae culpa, aspernatur natus rem eaque unde voluptatem amet repudiandae numquam non repellendus consequatur aperiam aliquam doloremque doloribus aut magnam deleniti. Inventore eos itaque possimus?
+     </div>
+     <button id="btn" onclick="toggleHide()">show/hide</button>
+     <script>
+          function toggleHide(){
+               let btn = document.getElementById('btn');
+               let para = document.getElementById('para');
+               if (para.style.display!='none') {
+                    para.style.display = 'none';
+               }
+               else{
+                    para.style.display = 'block';
+               }
+          }
+
+          // let para = document.getElementById('para');
+          para.addEventListener('mouseover',function run() {
+               console.log('MOUSE INSIDE');
+          });
+
+          para.addEventListener('mouseout',function run() {
+               console.log('MOUSE OUTSIDE');
+          });
+
+     </script>
+</body>
+</html>
