@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>loops</title>
+</head>
+
+<body>
+     <div class="container">
+          this is a container
+     </div>
+     <script>
+          console.log("AK");
+          for (let i = 0; i < 5; i++) {
+               console.log(i);
+          }
+          
+          let arr = [1, 2, 3, 4, 545, 354, 6];
+          for (let i = 0; i < arr.length; i++) {
+               console.log("Hello " + arr[i]);
+          }
+
+          arr.forEach(function f(ele) {
+               console.log("Hello guys " + ele)
+          });
+
+          for (item of arr) {
+               console.log("h" + item);
+          }
+
+          let employee = {
+               name: "AK",
+               salary: 23,
+               channel: "ch"
+          }
+
+          for (key in employee) {
+               console.log(`name is ${employee[key]}`);
+          }
+
+          for (value in employee) {
+               console.log(`name is ${value}`);
+          }
+
+          // while loop
+          let i = 0;
+          while (i < 6) {
+               console.log(`i is ${i}`);
+               i++;
+          }
+          // do while same
+          const shark = {
+               species: "great white",
+               color: "white",
+               numberOfTeeth: Infinity
+          }
+
+          for(i in shark){
+               console.log(`${i} + ${shark[i]}`);
+          }
+     </script>
+</body>
+
+</html>
