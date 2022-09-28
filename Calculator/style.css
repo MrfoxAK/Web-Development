@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+html, body{
+     height: 100%;
+     width: 100%;
+     font-family: 'Monoton', cursive;
+     background-image: url('https://cdn.dribbble.com/users/470545/screenshots/3471475/calculater.gif');
+     
+}
+
+/* *{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     background-color: #ecf0f3;
+} */
+
+.btn{
+     width: 66px;
+     padding: 20px;
+     margin: 0 3px;
+     border: 2px solid black;
+     border-radius: 5px;
+     cursor: pointer;
+     border-radius:  30px;
+     box-shadow: inset 5px 5px 12px #ffffff,
+     5px 5px 12px rgb(0, 0, 0,.16);
+     color: rgb(70, 70, 70);
+     border: none;
+}
+
+.row{
+     margin: 5px 0;
+}
+
+
+.row input{
+     /* margin: 200vmax; */
+     width: 206px;
+     font-size: 20px;
+     margin: 0;
+     padding: 10px 38px;
+     border: 1px solid black;
+     border-radius: 5px;
+}
+
+
+.container{
+     margin: auto;
+     width: 305px;
+     height: 411px;
+     /* padding: 400px; */
+     background-color: #ecf0f3;
+     padding: 15px;
+     border-radius:  30px;
+     box-shadow: inset 5px 5px 12px #ffffff,
+     5px 5px 12px rgb(0, 0, 0,.16);
+}
+
+
+.container{
+     /* height: 100vn; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
