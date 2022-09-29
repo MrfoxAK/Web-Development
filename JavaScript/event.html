@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>events</title>
+</head>
+<body>
+     <button class="btn" onclick="displayDate()">click here</button>
+     <!-- <button class="btn" onclick="func()">click here</button> -->
+     <div class="inp">
+          <input type="text" name="" id="inpID" onfocus="focusevent()">
+     </div>
+     <script>
+          
+          function func() {
+               // console.log("hey");
+          }
+          
+          function displayDate() {
+               // let d = Date();
+               // console.log(d);
+               document.getElementById('display').innerHTML = Date();
+          }
+          
+          function focusevent() {
+               document.getElementById('inpID').style.background = "gray";
+          }
+          
+          </script>
+     <p id="display"></p>
+</body>
+</html>
