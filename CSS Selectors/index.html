@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>CSS Selectors</title>
+     <style>
+          /* Element Selector */
+          div{
+               background-color: brown;
+          }
+
+          /* Class Selector */
+          .red{
+               background-color: rgb(11, 57, 98);
+          }
+
+          /* Id Selector */
+          #green{
+               background-color: green;
+          }
+
+          /* Child Selector */
+          div > p{
+               color: blue;
+               background-color: darkmagenta;
+          }
+
+          /* Desendant Selector */
+          div a{
+               color: rgb(159, 186, 54);
+          }
+
+          /* Universal Selector */
+          *{
+               margin: 0;
+               padding: 0;
+          }
+
+          /* Pseudo Selector */
+          a:visited{
+               color: yellow;
+          }
+          a:link{
+               color: green;
+          }
+          a:active{
+               background-color: blueviolet;
+          }
+          a:hover{
+               background-color: coral;
+          }
+          p:first-child{
+               background-color: darkgreen;
+          }
+     </style>
+</head>
+<body>
+     <div>
+          I am Akash
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores vero et non pariatur sit id, unde dolorum ratione debitis quisquam.</p>
+     </div>
+
+     <div class="red">
+          I am a div
+          <article>
+               <a href="">I am a link</a>
+          </article>
+     </div>
+
+     <div id="green">
+          Hy
+          <a href="https://www.google.co.in/">Google</a>
+          <a href="https://www.youtube.com/">youtube 3</a>
+     </div>
+</body>
+</html>
