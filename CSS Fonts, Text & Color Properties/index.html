@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Fonts, Text & Color Properties in CSS</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+          h1 {
+
+               /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+                    font-family: "Playwrite CU", cursive;
+                    font-optical-sizing: auto;
+                    font-weight: 900;
+                    font-style: normal;
+          }
+
+          p {
+
+               /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               font-style: italic;
+               font-weight: 500; */
+
+               font-family: "Protest Guerrilla", sans-serif;
+               font-weight: 400;
+               font-style: normal;
+
+               line-height: 1.9;
+
+          }
+          .font{
+               letter-spacing: 20px;
+          }
+          .lorem{
+               font-family: 'Times New Roman', Times, serif;
+               border: 2px solid black;
+               width: 500px;
+               text-overflow: clip;
+               overflow: scroll;
+          }
+
+          h2{
+               text-align: center;
+               text-transform: uppercase;
+               text-decoration: underline;
+               text-decoration-color: brown;
+               text-decoration-style: wavy;
+               /* text-indent: 1000px; */
+          }
+
+
+
+     </style>
+</head>
+
+<body>
+     <!-- https://codepen.io/web-dot-dev/pen/yLojraG -->
+     <h1>Fonts</h1>
+
+     <h2>About Fonts</h2>
+
+     <p class="font">This is a Font</p>
+
+     <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente accusamus, vero doloremque cumque consequatur iure numquam aspernatur error nemo mollitia soluta debitis eaque doloribus totam ducimus accusantium aperiam saepe harum itaque. Laborum vel asperiores dolorum tempore debitis dolor, at, laudantium reprehenderit cupiditate ipsa sapiente nihil.</p>
+</body>
+
+</html>
