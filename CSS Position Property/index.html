@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>CSS Position</title>
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+          }
+
+          .box {
+               height: 433px;
+               width: 80vw;
+               padding: 3px;
+               margin: 3px;
+               border: 2px solid black;
+          }
+
+          .box1 {
+               background-color: aqua;
+               /* position: sticky;
+            top:0px;
+            height: 111px;
+            width:100%;
+            margin: 0;
+            padding: 0; */
+               position: absolute;
+               top: 110px;
+               left: 31px;
+          }
+
+          .box2 {
+               background-color: azure;
+               /* position: relative;
+            top: 34px;
+            left: 56px; */
+          }
+
+          .box3 {
+               background-color: antiquewhite;
+               /* position: fixed;
+            bottom: 0px;
+            left:8vw;
+            height: 111px; */
+          }
+
+          .box4 {
+               background-color: purple;
+          }
+
+          .parent {
+               padding: 43px;
+               margin: 4px;
+               border: 3px solid purple;
+               /* position: relative; */
+
+
+               /* Exception: transform, filter, or perspective properties can also make an element appear as positioned */
+               /* transform: translate(0); */
+               /* filter: invert(0); */
+               /* perspective: 0em; */
+          }
+          ul{
+               height: 60px;
+               width: 90vw;
+               display: flex;
+               list-style: none;
+          }
+          li{
+               padding: 25px;
+          }
+          nav{
+               background-color: #c2efcc;
+               margin: 10px;
+               border: 2px solid blueviolet;
+               position: fixed;
+               z-index: 1;
+          }
+     </style>
+</head>
+
+<body>
+     <nav>
+          <ul>
+               <li>Home</li>
+               <li>Home</li>
+               <li>Home</li>
+               <li>Home</li>
+          </ul>
+     </nav>
+     <div class="parent">
+          <div class="box box1"></div>
+          <div class="box box2"></div>
+          <div class="box box3"></div>
+          <div class="box box4"></div>
+     </div>
+     
+</body>
+
+</html>
