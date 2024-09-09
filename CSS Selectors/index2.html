@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>CSS Selectors Part 2</title>
+     <style>
+          /* .box:first-child{
+               background-color: red;
+          } */
+          /* .box::first-line{
+               color: red;
+          } */
+          /* .boxes * {
+               color: blue;
+               border: 2px solid black;
+          }
+          [data-color="primary"]{
+               padding: 30px;
+          } */
+          /* .box:nth-child(odd){
+               background-color: aqua;
+          } */
+          /* .box:nth-last-child(1){
+               background-color: aqua;
+          } */
+          .boxes::before{
+               content: "Akash Das";
+               color: brown;
+          }
+          /* .boxes::after{
+               color: rgb(73, 210, 57);
+               content: "Akash Das awawdwdwadawdadw";
+          } */
+          ::selection{
+               background-color: brown;
+               color: aqua;
+          }
+          .box::first-letter{
+               color: coral;
+               font-size: 45px;
+          }
+          input::placeholder{
+               color: blueviolet;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="boxes">
+          <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fugiat nulla, quo ea
+               maiores odio enim maxime officiis asperiores laborum saepe optio recusandae error temporibus voluptatum
+               dolor quisquam neque quis ut odit doloribus libero at debitis? Enim voluptates voluptatem accusantium
+               placeat ullam impedit nostrum earum in, quas amet expedita labore, ratione eveniet sit deserunt sapiente
+               dolorum. In, fuga! Ab quaerat aspernatur, amet velit repellat soluta aliquam necessitatibus quisquam sit
+               maxime recusandae, quas adipisci. Sequi, accusamus voluptate aut laudantium earum sunt consequatur
+               veritatis veniam consequuntur porro, incidunt quia, tenetur harum nostrum in provident? Tenetur,
+               deleniti. Incidunt voluptas accusamus officia sequi voluptatem!</div>
+          <div data-color="primary" class="box">I am a Box</div>
+          <div class="box">I am a Box</div>
+          <input type="text" placeholder="Type Your Name Here">
+     </div>
+</body>
+
+</html>
