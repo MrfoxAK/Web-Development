@@ -6,12 +6,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Card</title>
      <style>
-          html{
+          html {
                background-color: rgb(235, 155, 99);
           }
-          .main{
+
+          .main {
                display: flex;
           }
+
           .main1 {
                border-radius: 25px;
                background-color: bisque;
@@ -92,21 +94,50 @@
                background-color: burlywood;
                border: 1px solid rgb(237, 117, 73);
           }
-          .button button{
+
+          .button button {
                padding: 0 20px 0 20px;
                cursor: pointer;
           }
-          .button button:hover{
+
+          .button button:hover {
                color: #ffffff;
                background-color: #faa449;
           }
 
+          [d="a"]{
+               margin: 30px;
+          }
+          [d="b"]{
+               margin: 30px;
+          }
+          [d="c"]{
+               margin: 30px;
+          }
+
+          [d="a"]:hover {
+               box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
+               transform: skew(5deg) scale(0.9);
+          }
+
+          [d="b"]:hover {
+               box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
+               transform: skew(5deg) scale(0.9);
+          }
+
+          [d="c"]:hover {
+               box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
+               /* background-color: #fff;
+
+               box-shadow: 120px 80px 40px 20px #0ff; */
+               transform: skew(5deg) scale(0.9);
+          }
      </style>
 </head>
 
 <body>
      <div class="main">
-          <div class="main1">
+          <div class="main1" d="a">
                <div class="imge">
                     <img src="https://pixlr.com/images/index/product-image-one.webp" alt="">
                </div>
@@ -142,9 +173,10 @@
                     </button>
                </div>
           </div>
-          <div class="main1">
+          <div class="main1" d="b">
                <div class="imge">
-                    <img src="https://images.nightcafe.studio/jobs/HX0qECzjWoKyUGykdOal/HX0qECzjWoKyUGykdOal--1--znrys_2x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max" alt="">
+                    <img src="https://images.nightcafe.studio/jobs/HX0qECzjWoKyUGykdOal/HX0qECzjWoKyUGykdOal--1--znrys_2x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
+                         alt="">
                </div>
 
                <div class="has">
@@ -178,9 +210,10 @@
                     </button>
                </div>
           </div>
-          <div class="main1">
+          <div class="main1" d="c">
                <div class="imge">
-                    <img src="https://i.etsystatic.com/15167306/r/il/ebbe32/4584895910/il_570xN.4584895910_gsif.jpg" alt="">
+                    <img src="https://i.etsystatic.com/15167306/r/il/ebbe32/4584895910/il_570xN.4584895910_gsif.jpg"
+                         alt="">
                </div>
 
                <div class="has">
