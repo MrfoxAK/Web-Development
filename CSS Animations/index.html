@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>CSS Animations</title>
+     <style>
+          .container{
+               background-color: aqua;
+               width: 50vw;
+               height: 50vh;
+          }
+          .box{
+               align-content: center;
+               border-radius: 10px;
+               /* background-color: cadetblue; */
+               width: 34px;
+               height: 45px;
+
+               /* animation: Ak;
+               animation-duration: 3s;
+               animation-iteration-count: infinite;
+               animation-timing-function: cubic-bezier(1, 0.24, 0, 1.37);
+               animation-delay: 1s; */
+
+               /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+               /* animation: Ak 3s ease-in-out 1s 1 forwards; */
+               animation: Ak 3s ease-in-out 1s 1 backwards, Ak2 3s ease-in-out 1s 1 backwards;
+          }
+          @keyframes Ak {
+               from{
+                    background-color: red;
+               }
+               to{
+                    transform: translateX(1000px);
+                    background-color: skyblue;
+               }
+          }
+          @keyframes Ak2 {
+               0%{
+                    transform: rotate(100deg);
+               }
+               25%{
+                    transform: rotate(200deg);
+               }
+               50%{
+                    transform: rotate(220deg);
+               }
+               100%{
+                    transform: rotate(300deg);
+               }
+          }
+     </style>
+</head>
+<body>
+     <div class="container">
+          <div class="box">
+               Box
+          </div>
+     </div>
+</body>
+</html>
