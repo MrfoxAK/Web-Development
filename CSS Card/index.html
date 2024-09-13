@@ -8,128 +8,90 @@
      <style>
           html {
                background-color: rgb(235, 155, 99);
+               font-family: 'Arial', sans-serif;
           }
 
           .main {
                display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-wrap: wrap;
+               gap: 20px;
+               padding: 20px;
           }
 
           .main1 {
-               border-radius: 25px;
-               background-color: bisque;
-               height: 650px;
-               width: 410px;
+               border-radius: 15px;
+               background-color: #fff;
+               height: auto;
+               width: 350px;
                overflow: hidden;
-               margin: 2px;
-               padding: 2px;
-               box-shadow: 6px 3px 8px 3px rgba(0, 0, 0, 0.5);
+               margin: 10px;
+               padding: 20px;
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+               transition: transform 0.3s, box-shadow 0.3s;
+          }
+
+          .main1:hover {
+               transform: translateY(-10px);
+               box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
           }
 
           img {
-               border-radius: 25px;
-               position: relative;
-               margin: 5px;
-               height: 310px;
-               width: 400px;
+               border-radius: 15px;
+               width: 100%;
+               height: auto;
+               margin-bottom: 15px;
           }
 
           h1 {
-               position: relative;
-               left: 10px;
+               font-size: 1.5em;
+               margin-bottom: 10px;
+               color: #333;
           }
 
           .lorem {
-               position: relative;
-               width: 390px;
-               left: 10px;
-               right: 10px;
+               font-size: 0.9em;
+               color: #666;
+               margin-bottom: 20px;
+               line-height: 1.6;
           }
 
           .has {
                display: flex;
-               margin: 2px;
-               padding: 2px;
-               font-size: medium;
+               gap: 10px;
+               margin-bottom: 15px;
           }
 
-          .nature {
-               position: relative;
-               padding-left: 10px;
-               padding-right: 10px;
-               padding-top: 2px;
-               left: 5px;
-               background-color: burlywood;
-               border-radius: 25px;
-               border: 1px solid rgb(237, 117, 73);
-          }
-
-          .lake {
-               position: relative;
-               padding-left: 10px;
-               padding-right: 10px;
-               padding-top: 2px;
-               left: 10px;
-               background-color: burlywood;
-               border-radius: 25px;
-               border: 1px solid rgb(237, 117, 73);
-          }
-
-          .flower {
-               position: relative;
-               padding-left: 10px;
-               padding-right: 10px;
-               padding-top: 2px;
-               left: 15px;
-               background-color: burlywood;
-               border-radius: 25px;
-               border: 1px solid rgb(237, 117, 73);
+          .nature, .lake, .flower {
+               padding: 5px 10px;
+               background-color: #f0e68c;
+               border-radius: 15px;
+               border: 1px solid #ddd;
+               font-size: 0.8em;
+               color: #555;
           }
 
           button {
-               position: relative;
-               left: 155px;
-               top: 20px;
-               padding: 2px;
+               padding: 10px 20px;
                border-radius: 25px;
-               background-color: burlywood;
-               border: 1px solid rgb(237, 117, 73);
-          }
-
-          .button button {
-               padding: 0 20px 0 20px;
+               background-color: #f0e68c;
+               border: none;
                cursor: pointer;
+               transition: background-color 0.3s, color 0.3s;
           }
 
-          .button button:hover {
-               color: #ffffff;
+          button:hover {
+               color: #fff;
                background-color: #faa449;
           }
 
-          [d="a"]{
-               margin: 30px;
-          }
-          [d="b"]{
-               margin: 30px;
-          }
-          [d="c"]{
+          [d="a"], [d="b"], [d="c"] {
                margin: 30px;
           }
 
-          [d="a"]:hover {
+          [d="a"]:hover, [d="b"]:hover, [d="c"]:hover {
                box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
-               transform: skew(5deg) scale(0.9);
-          }
-
-          [d="b"]:hover {
-               box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
-               transform: skew(5deg) scale(0.9);
-          }
-
-          [d="c"]:hover {
-               box-shadow: rgba(72, 135, 202, 0.8) 0 0 90px 33px;
-               /* background-color: #fff;
-
-               box-shadow: 120px 80px 40px 20px #0ff; */
                transform: skew(5deg) scale(0.9);
           }
      </style>
