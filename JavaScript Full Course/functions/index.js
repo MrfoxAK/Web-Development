@@ -27,3 +27,7 @@ const greet = (username) =>{
 }
 let g = greet("Akash")
 console.log(g)
+
+const square = (x) => x*x;
+
+console.log(square(2));
