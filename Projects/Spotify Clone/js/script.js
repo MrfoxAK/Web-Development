@@ -32,6 +32,7 @@ async function getSongs(folder) {
                songs.push(element.href.split(`/${folder}/`)[1])
           }
      }
+
      // Show all the songs in the playlist
      let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
      songUL.innerHTML = ""
@@ -53,6 +54,8 @@ async function getSongs(folder) {
                playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
           })
      });
+
+     return songs;
 }
 
 const playMusic = (track, pause = false) => {
@@ -85,7 +88,7 @@ async function displayAlbums() {
                let a = await fetch(`http://127.0.0.1:3000/Projects/Spotify%20Clone/songs/${folder}/info.json`);
                let response = await a.json();
                console.log(response);
-               cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="cs" class="card">
+               cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
                               <div class="play">
                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100"
                                         height="100">
@@ -105,7 +108,8 @@ async function displayAlbums() {
           // Load the playlist whenever card is clicked
           Array.from(document.getElementsByClassName("card")).forEach(e => {
                e.addEventListener("click", async item => {
-                    songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
+                    songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+                    playMusic(songs[0])
                })
           })
      }
