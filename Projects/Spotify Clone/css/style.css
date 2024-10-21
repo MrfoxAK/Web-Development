@@ -229,6 +229,10 @@ body {
      width: 344px;
 }
 
+.info div{
+     word-break: break-all;
+}
+
 .playnow {
      display: flex;
      justify-content: center;
@@ -268,11 +272,29 @@ body {
      cursor: pointer;
 }
 
-.songinfo,
-.songtime {
+.songinfo{
      color: rgb(0, 0, 0);
      padding: 0 12px;
      width: 250px;
+}
+
+.songtime {
+     color: rgb(0, 0, 0);
+     padding: 0 12px;
+     width: 125px;
+}
+
+.timevol{
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+}
+
+.volume{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 12px;
 }
 
 .abovebar {
@@ -281,7 +303,7 @@ body {
      justify-content: space-between;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
      .left {
           background-color: rgb(0, 0, 0);
           position: absolute;
@@ -289,6 +311,7 @@ body {
           transition: all .3s;
           z-index: 1;
           width: 370px;
+          padding: 0;
      }
 
      .songinfo, .songtime{
@@ -300,6 +323,14 @@ body {
           top: 25px;
           right: 31px;
           cursor: pointer;
+     }
+
+     .timevol{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 13px;
      }
 
      .right {
@@ -320,7 +351,7 @@ body {
      }
 
      .card{
-          width: 90vw;
+          width: 44vw;
      }
 
      .cardContainer{
@@ -336,5 +367,11 @@ body {
           flex-direction: column;
           gap: 23px;
           align-items: center;
+     }
+}
+
+@media (max-width: 400px) {
+     .card{
+          width: 80vw;
      }
 }

@@ -77,7 +77,6 @@ async function main() {
      // Attach a addEventListener to each song
      Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
           e.addEventListener("click", element => {
-               console.log(e.querySelector(".info").firstElementChild.innerHTML);
                playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
           })
      });
@@ -96,7 +95,7 @@ async function main() {
 
      // Listen for timeupdate event
      currentSong.addEventListener("timeupdate", () => {
-          console.log(currentSong.currentTime, currentSong.duration);
+          // console.log(currentSong.currentTime, currentSong.duration);
           document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`;
           document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
      })
@@ -130,6 +129,12 @@ async function main() {
           if((index+1) < songs.length){
                playMusic(songs[index+1])
           }
+     })
+
+     // Add an event listener for volume change
+     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
+          console.log("Setting Volume to " + e.target.value + "/100");
+          currentSong.volume = parseInt(e.target.value)/100;
      })
 
 }
