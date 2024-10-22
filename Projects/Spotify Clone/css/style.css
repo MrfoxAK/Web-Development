@@ -386,13 +386,13 @@ body {
           align-items: center;
      }
 
-     .cardContainer{
+     /* .cardContainer{
           max-height: 50vh;
-     }
+     } */
 }
 
 @media (max-width: 500px) {
      .card{
-          width: auto;
+          width: 84vw;
      }
 }
