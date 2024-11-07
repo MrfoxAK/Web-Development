@@ -1,4 +1,4 @@
-let arr = [1,2,3,4,6,"akash"]
+let arr = [1,2,3,4,6,"akash",true, {}, function(){}, []]
 
 // console.log(arr);
 // console.log(arr.length);
