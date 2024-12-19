@@ -1,0 +1,192 @@
+/* Global Styles */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+ 
+ body {
+     font-family: 'Roboto', sans-serif;
+     background: linear-gradient(135deg, #ff6f61, #ffcc70);
+     background-size: 400% 400%;
+     animation: gradientAnimation 12s ease infinite;
+     color: #fff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     overflow: hidden;
+ }
+ 
+ /* Gradient Background Animation */
+ @keyframes gradientAnimation {
+     0% { background-position: 0% 50%; }
+     50% { background-position: 100% 50%; }
+     100% { background-position: 0% 50%; }
+ }
+ 
+ /* Header Style */
+ h1 {
+     text-align: center;
+     font-size: 2.5rem;
+     text-transform: uppercase;
+     color: #fff;
+     margin-bottom: 1rem;
+     letter-spacing: 2px;
+     animation: fadeInUp 1.5s ease-out;
+ }
+ 
+ @keyframes fadeInUp {
+     0% { opacity: 0; transform: translateY(-50px); }
+     100% { opacity: 1; transform: translateY(0); }
+ }
+ 
+ /* Form Styles */
+ form {
+     background: rgba(255, 255, 255, 0.1);
+     border-radius: 15px;
+     padding: 3rem;
+     width: 350px;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+     animation: fadeIn 1.5s ease-out;
+ }
+ 
+ input[type="text"],
+ input[type="email"],
+ input[type="password"] {
+     width: 100%;
+     padding: 1rem;
+     margin: 0.8rem 0;
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     border-radius: 10px;
+     background: rgba(255, 255, 255, 0.15);
+     color: #fff;
+     font-size: 1.1rem;
+     transition: all 0.3s ease;
+ }
+ 
+ input[type="text"]::placeholder,
+ input[type="email"]::placeholder,
+ input[type="password"]::placeholder {
+     color: rgba(255, 255, 255, 0.7);
+ }
+ 
+ input[type="text"]:focus,
+ input[type="email"]:focus,
+ input[type="password"]:focus {
+     border-color: #ffcc70;
+     background-color: rgba(255, 255, 255, 0.2);
+     outline: none;
+ }
+ 
+ button {
+     width: 100%;
+     padding: 1rem;
+     margin-top: 1rem;
+     background: #ff6f61;
+     border: none;
+     border-radius: 10px;
+     color: #fff;
+     font-size: 1.2rem;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+ 
+ button:hover {
+     background: #ff512f;
+     transform: scale(1.05);
+ }
+ 
+ a {
+     display: block;
+     text-align: center;
+     color: #ffcc70;
+     font-size: 1rem;
+     margin-top: 1rem;
+     text-decoration: none;
+     transition: color 0.3s ease;
+ }
+ 
+ a:hover {
+     color: #ff6f61;
+ }
+ 
+ /* Responsive Design */
+ @media (max-width: 768px) {
+     body {
+         padding: 20px;
+     }
+ 
+     form {
+         width: 100%;
+         padding: 2rem;
+     }
+ 
+     h1 {
+         font-size: 2rem;
+     }
+ }
+ 
+ /* Animations for Input Fields */
+ @keyframes slideIn {
+     0% { opacity: 0; transform: translateX(-20px); }
+     100% { opacity: 1; transform: translateX(0); }
+ }
+ 
+ /* Form field animation */
+ input[type="text"],
+ input[type="email"],
+ input[type="password"] {
+     animation: slideIn 1.5s ease-out;
+ }
+ 
+ /* Button Pop Effect */
+ @keyframes buttonPop {
+     0% { transform: scale(1); }
+     50% { transform: scale(1.1); }
+     100% { transform: scale(1); }
+ }
+ 
+ button {
+     animation: buttonPop 1.5s infinite alternate;
+ }
+ 
+ /* Error message animation */
+ p.error {
+     text-align: center;
+     color: red;
+     font-size: 1.1rem;
+     animation: bounceIn 1s ease-out;
+ }
+ 
+ @keyframes bounceIn {
+     0% { transform: scale(0.5); opacity: 0; }
+     50% { transform: scale(1.1); opacity: 1; }
+     100% { transform: scale(1); opacity: 1; }
+ }
+ 
+ /* Dashboard styles */
+ .dashboard-welcome {
+     text-align: center;
+     font-size: 2.5rem;
+     color: #fff;
+     animation: fadeInUp 1.5s ease-out;
+ }
+ 
+ /* Add some cool transition to logout link */
+ a.logout {
+     margin-top: 20px;
+     padding: 10px 15px;
+     background-color: #ff512f;
+     border-radius: 5px;
+     color: #fff;
+     font-size: 1rem;
+     transition: background-color 0.3s, transform 0.3s;
+ }
+ 
+ a.logout:hover {
+     background-color: #ff6f61;
+     transform: translateY(-5px);
+ }
+ 
