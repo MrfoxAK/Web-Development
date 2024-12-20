@@ -17,16 +17,21 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-  res.render('login')
+  res.render('login');
+})
+
+app.get('/profile', isLoggedIn, (req, res) => {
+  console.log(req.user);
+  res.render('login');
 })
 
 app.post('/register', async (req, res) => {
-  let {email, password, username, name, age} = req.body;
+  let { email, password, username, name, age } = req.body;
 
-  let user = await userModel.findOne({email});
-  if(user) return res.status(500).send("User already registered");
+  let user = await userModel.findOne({ email });
+  if (user) return res.status(500).send("User already registered");
 
-  bcrypt.genSalt(10, (err, salt)=>{
+  bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(password, salt, async (err, hash) => {
       let user = await userModel.create({
         username,
@@ -36,7 +41,7 @@ app.post('/register', async (req, res) => {
         password: hash
       });
 
-      let token = jwt.sign({email: email, userid: user._id}, "ak");
+      let token = jwt.sign({ email: email, userid: user._id }, "ak");
       res.cookie("token", token);
       res.send("registered");
     });
@@ -44,21 +49,34 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-  let {email, password} = req.body;
+  let { email, password } = req.body;
 
-  let user = await userModel.findOne({email});
-  if(!user) return res.status(500).send("Something went wrong");
+  let user = await userModel.findOne({ email });
+  if (!user) return res.status(500).send("Something went wrong");
 
-  bcrypt.compare(password, user.password, function(err, result){
-    if(result) res.status(200).send("You can login")
+  bcrypt.compare(password, user.password, function (err, result) {
+    if (result) {
+      let token = jwt.sign({ email: email, userid: user._id }, "ak");
+      res.cookie("token", token);
+      res.status(200).send("You can login")
+    }
     else res.redirect("/login");
   });
 });
 
 app.get('/logout', (req, res) => {
-  res.cookie("token","");
+  res.cookie("token", "");
   res.redirect('/login');
 })
+
+function isLoggedIn(req, res, next) {
+  if (req.cookies.token === "") res.send("You must login");
+  else {
+    let data = jwt.verify(req.cookies.token, "ak");
+    req.user = data;
+    next();
+  }
+}
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
