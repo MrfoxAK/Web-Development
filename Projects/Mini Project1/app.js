@@ -1,8 +1,8 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const userModel = require("./models/user")
-const postModel = require("./models/post")
+const express = require('express');
+const app = express();
+const port = 3000;
+const userModel = require("./models/user");
+const postModel = require("./models/post");
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -13,17 +13,29 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index');
 })
 
 app.get('/login', (req, res) => {
   res.render('login');
 })
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  console.log(req.user);
-  res.render('login');
-})
+app.get('/profile', isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({email: req.user.email}).populate("posts");
+  res.render('profile', {user});
+});
+
+app.post('/post', isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({email: req.user.email});
+  let {content} = req.body;
+  let post = await postModel.create({
+    user: user._id,
+    content
+  });
+  user.posts.push(post._id);
+  await user.save();
+  res.redirect("/profile");
+});
 
 app.post('/register', async (req, res) => {
   let { email, password, username, name, age } = req.body;
@@ -58,7 +70,7 @@ app.post('/login', async (req, res) => {
     if (result) {
       let token = jwt.sign({ email: email, userid: user._id }, "ak");
       res.cookie("token", token);
-      res.status(200).send("You can login")
+      res.status(200).redirect("/profile");
     }
     else res.redirect("/login");
   });
@@ -67,10 +79,10 @@ app.post('/login', async (req, res) => {
 app.get('/logout', (req, res) => {
   res.cookie("token", "");
   res.redirect('/login');
-})
+});
 
 function isLoggedIn(req, res, next) {
-  if (req.cookies.token === "") res.send("You must login");
+  if (req.cookies.token === "") res.redirect("/login");
   else {
     let data = jwt.verify(req.cookies.token, "ak");
     req.user = data;
@@ -79,5 +91,5 @@ function isLoggedIn(req, res, next) {
 }
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
