@@ -20,6 +20,11 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/home', async (req, res) => {
+  let post = await postModel.find().populate('user', 'username');
+  res.render('home', { post });
+});
+
 app.get('/profile/upload', (req, res) => {
   res.render('profileupload');
 });
