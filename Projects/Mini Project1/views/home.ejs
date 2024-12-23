@@ -17,6 +17,9 @@
                          <li class="post mb-4 p-4 rounded-md border-[1px] bg-zinc-800 border-zinc-700 ">
                            <p><%= post.content %></p>
                            <p class="text-blue-500">@<%= post.user.username %></p>
+                           <small class="mt-2 inline-block">
+                              <%= post.likes.length %> likes
+                         </small>
                          </li>
                        <% }); %>
                </div>
