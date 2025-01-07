@@ -153,58 +153,61 @@ function App() {
 
         <h2 className='text-lg font-bold animate-fade-in'>Your Todos</h2>
         <div className="todos">
-          {todos.length === 0 && <div className='m-5 animate-fade-in'>No Todos to Display</div>}
-          {todos.filter(item => 
-            item.todo.toLowerCase().includes(search.toLowerCase())
-          ).map(item => (
-            (showFinished || !item.isCompleted) && (
-              <div key={item.id} className="todo flex items-center justify-between w-full my-3 animate-slide-up">
-                <div className="flex items-center gap-5 w-full sm:w-auto overflow-hidden">
-                  <input
-                    name={item.id}
-                    onChange={handleCheckbox}
-                    type="checkbox"
-                    checked={item.isCompleted}
-                    className="cursor-pointer"
-                  />
-                  <div className={`flex-1 ${item.isCompleted ? "line-through" : ""} overflow-hidden truncate`} title={item.todo}>
-                    {item.todo}
-                  </div>
-                </div>
-
-                {/* Aligning important text, date and buttons to the right */}
-                <div className="flex gap-3 items-center ml-auto">
-                  <div className={`priority text-sm ${item.priority === 'Important' ? 'text-red-600 font-bold' : ''}`}>
-                    {item.priority}
-                  </div>
-                  <div className="dueDate text-gray-500">
-                    {item.dueDate ? `Due: ${item.dueDate}` : ''}
-                  </div>
-                  {/* Edit SVG */}
-                  <button 
-                    onClick={() => { handleEdit(item.id) }} 
-                    className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md'>
-                    {/* High-quality edit SVG */}
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 20h9"></path>
-                      <path d="M16 4l4 4-8 8-4-4 8-8z"></path>
-                    </svg>
-                  </button>
-
-                  {/* Delete SVG */}
-                  <button 
-                    onClick={() => handleConfirmDelete(item.id)} 
-                    className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md'>
-                    {/* High-quality delete SVG */}
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
+  {todos.length === 0 && <div className='m-5 animate-fade-in'>No Todos to Display</div>}
+  {todos.filter(item => 
+    item.todo.toLowerCase().includes(search.toLowerCase())
+  ).map(item => (
+    (showFinished || !item.isCompleted) && (
+      <div 
+        key={item.id} 
+        className="todo w-full my-3 p-3 rounded-md shadow-md flex flex-col sm:flex-row items-start gap-3 animate-slide-up"
+      >
+        {/* Checkbox and Todo Text */}
+        <div className="flex items-start gap-3 w-full">
+          <input
+            name={item.id}
+            onChange={handleCheckbox}
+            type="checkbox"
+            checked={item.isCompleted}
+            className="cursor-pointer mt-1"
+          />
+          <div className={`flex-1 ${item.isCompleted ? "line-through text-gray-400" : "text-black"} overflow-hidden`}>
+            <div className="text-base font-medium">{item.todo}</div>
+            {/* Priority and Due Date */}
+            <div className="flex flex-col text-sm text-gray-600 mt-1">
+              <div className={`priority ${item.priority === 'Important' ? 'text-red-600 font-bold' : ''}`}>
+                {item.priority}
               </div>
-            )
-          ))}
+              <div className="dueDate">
+                {item.dueDate ? `Due: ${item.dueDate}` : ''}
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Edit and Delete Buttons */}
+        <div className="flex gap-2 mt-2 sm:mt-0 sm:ml-auto">
+          <button 
+            onClick={() => { handleEdit(item.id) }} 
+            className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md'>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16 4l4 4-8 8-4-4 8-8z"></path>
+            </svg>
+          </button>
+          <button 
+            onClick={() => handleConfirmDelete(item.id)} 
+            className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md'>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    )
+  ))}
+</div>
+
 
         {isDialogOpen && (
           <div className="confirm-dialog fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
