@@ -7,7 +7,7 @@ function App() {
   const [todos, setTodos] = useState([]) // Initialize as an empty array
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [todoIdToDelete, setTodoIdToDelete] = useState(null)
-  const [showFinished, setshowFinished] = useState(true)
+  const [showFinished, setShowFinished] = useState(true)
 
   // Load todos from localStorage on component mount
   useEffect(() => {
@@ -23,14 +23,13 @@ function App() {
     if (todos.length > 0) { // Only save if there are todos
       localStorage.setItem("todos", JSON.stringify(todos))
     }
-  }, [todos]) // This will run every time the todos state changes
+  }, [todos])
 
-
-  const toggleFinished = (e) => {
-    setshowFinished(!showFinished)
+  const toggleFinished = () => {
+    setShowFinished(!showFinished)
   }
 
-  const handleEdit = (e, id) => {
+  const handleEdit = (id) => {
     let t = todos.filter(i => i.id === id)
     setTodo(t[0].todo)
     let newTodos = todos.filter(item => {
@@ -47,7 +46,7 @@ function App() {
   }
 
   const handleAdd = () => {
-    // Add a new todo
+    // Add a new todo with a scale-up and bounce animation for the "Save" button
     setTodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
     setTodo('')
   }
@@ -76,38 +75,59 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto bg-violet-100 rounded-xl p-5 my-10 min-h-[80vh] w-3/4 sm:w-1/2 text-sm md:text-lg max-w-[500px]:text-xs">
-        <div className="addTodo my-5">
+      <div className="container mx-auto bg-gradient-to-r from-pink-500 via-violet-600 to-blue-500 bg-cover bg-center bg-fixed rounded-xl p-5 my-10 min-h-[80vh] w-3/4 sm:w-1/2 text-sm md:text-lg max-w-[500px]:text-xs animate-gradient-change">
+        <div className="addTodo my-5 animate-fade-in">
           <h2 className='text-lg font-bold'>Add a Todo</h2>
-          <input onChange={handleChange} value={todo} type="text" className='w-1/2' />
-          <button onClick={handleAdd} disabled={todo.length<=3} className='bg-violet-800 hover:bg-violet-950 disabled:bg-violet-500 p-2 py-1 text-sm font-bold text-white rounded-md mx-6'>Save</button>
+          <input 
+            onChange={handleChange} 
+            value={todo} 
+            type="text" 
+            className='w-full sm:w-1/2 border rounded-md p-2 mb-2 animate-pop'
+          />
+          <button 
+            onClick={handleAdd} 
+            disabled={todo.length <= 3} 
+            className='bg-violet-800 hover:bg-violet-950 disabled:bg-violet-500 p-2 py-1 text-sm font-bold text-white rounded-md mx-6 animate-bounce hover:animate-scale-up hover:animate-pulse-glow'>
+              Save
+          </button>
         </div>
-        <input type="checkbox" onChange={toggleFinished} checked={showFinished} />Show Finished
-        <h2 className='text-lg font-bold'>Your Todos</h2>
+        
+        <div className="flex items-center gap-2 mb-5 animate-slide-up">
+          <input type="checkbox" onChange={toggleFinished} checked={showFinished} className="cursor-pointer" />Show Finished
+        </div>
+        
+        <h2 className='text-lg font-bold animate-fade-in'>Your Todos</h2>
         <div className="todos">
-          {todos.length === 0 && <div className='m-5'>No Todos to Display</div>}
+          {todos.length === 0 && <div className='m-5 animate-fade-in'>No Todos to Display</div>}
           {todos.map(item => (
-            (showFinished || !item.isCompleted) && <div key={item.id} className="todo flex my-3 justify-between w-full">
-              <div className='flex gap-5'>
-                <input
-                  name={item.id}
-                  onChange={handleCheckbox}
-                  type="checkbox"
-                  checked={item.isCompleted}
-                />
-                <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
+            (showFinished || !item.isCompleted) && (
+              <div key={item.id} className="todo flex my-3 justify-between w-full animate-slide-up">
+                <div className='flex gap-5'>
+                  <input
+                    name={item.id}
+                    onChange={handleCheckbox}
+                    type="checkbox"
+                    checked={item.isCompleted}
+                    className="cursor-pointer" // No animation here
+                  />
+                  <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
+                </div>
+                <div className="buttons flex h-full">
+                  <button onClick={() => { handleEdit(item.id) }} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1 animate-pop'>
+                    Edit
+                  </button>
+                  <button onClick={() => handleConfirmDelete(item.id)} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1 animate-pop'>
+                    Delete
+                  </button>
+                </div>
               </div>
-              <div className="buttons flex h-full">
-                <button onClick={(e) => { handleEdit(e, item.id) }} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1'>Edit</button>
-                <button onClick={() => handleConfirmDelete(item.id)} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1'>Delete</button>
-              </div>
-            </div>
+            )
           ))}
         </div>
 
         {isDialogOpen && (
           <div className="confirm-dialog fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
-            <div className="bg-white p-5 rounded-md">
+            <div className="bg-white p-5 rounded-md animate-fade-out">
               <p>Are you sure you want to delete this todo?</p>
               <div className="mt-4">
                 <button onClick={handleDelete} className="bg-red-600 hover:bg-red-700 text-white p-2 rounded-md mr-2">Yes</button>
