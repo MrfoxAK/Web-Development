@@ -78,13 +78,31 @@ function App() {
     setDueDate(e.target.value);
   };
 
+
+
   const handleCheckbox = (e) => {
     const id = e.target.name;
     const index = todos.findIndex(item => item.id === id);
     const newTodos = [...todos];
+    
+    // Toggle the completion status
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
+  
+    // Play sound only when marking as completed
+    if (newTodos[index].isCompleted) {
+      playCompletionSound();
+    }
+  
+    // Update the todos state
     setTodos(newTodos);
   };
+  
+  const playCompletionSound = () => {
+    const audio = new Audio('../assets/m.wav'); // Replace with your sound file path
+    audio.play();
+  };
+
+
 
   const handleConfirmDelete = (id) => {
     setTodoIdToDelete(id);
@@ -107,7 +125,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto bg-gradient-to-r from-pink-500 via-violet-600 to-blue-500 bg-cover bg-center bg-fixed rounded-xl p-5 my-10 min-h-[80vh] w-3/4 sm:w-1/2 text-sm md:text-lg max-w-[500px]:text-xs animate-gradient-change">
+      <div className="bg-gradient-to-r from-blue-200 via-blue-300 to-blue-500 min-h-screen">
+      <div className="container mx-auto bg-blue-200 rounded-xl p-5 min-h-[80vh] w-3/4 sm:w-1/2 text-sm md:text-lg max-w-[500px]:text-xs">
         <div className="addTodo my-5 animate-fade-in">
           <h2 className='text-lg font-bold'>{editingTodoId ? 'Edit Todo' : 'Add a Todo'}</h2>
           <input 
@@ -226,6 +245,7 @@ function App() {
           className='bg-red-600 hover:bg-red-700 text-white p-2 rounded-md mt-5'>
           Clear Completed
         </button>
+      </div>
       </div>
     </>
   );
