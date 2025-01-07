@@ -7,7 +7,7 @@ function App() {
   const [todos, setTodos] = useState([]); // Initialize as an empty array
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [todoIdToDelete, setTodoIdToDelete] = useState(null);
-  const [showFinished, setShowFinished] = useState(true);
+  const [showFinished, setShowFinished] = useState(false);
   const [search, setSearch] = useState('');
   const [editingTodoId, setEditingTodoId] = useState(null);
   const [priority, setPriority] = useState('Normal'); // Priority for todos
@@ -125,8 +125,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="bg-gradient-to-r from-blue-200 via-blue-300 to-blue-500 min-h-screen">
-      <div className="container mx-auto bg-blue-200 rounded-xl p-5 min-h-[80vh] w-3/4 sm:w-1/2 text-sm md:text-lg max-w-[500px]:text-xs">
+      <div className="bg-gradient-to-r bg-blue-200 min-h-screen">
+      <div className="container mx-auto bg-blue-300 rounded-xl p-5 min-h-[80vh] w-3/4 sm:w-1/2 text-sm md:text-lg max-w-[500px]:text-xs">
         <div className="addTodo my-5 animate-fade-in">
           <h2 className='text-lg font-bold'>{editingTodoId ? 'Edit Todo' : 'Add a Todo'}</h2>
           <input 
