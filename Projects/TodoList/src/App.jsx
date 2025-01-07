@@ -158,8 +158,8 @@ function App() {
             item.todo.toLowerCase().includes(search.toLowerCase())
           ).map(item => (
             (showFinished || !item.isCompleted) && (
-              <div key={item.id} className="todo flex my-3 justify-between w-full animate-slide-up">
-                <div className='flex gap-5'>
+              <div key={item.id} className="todo flex items-center justify-between w-full my-3 animate-slide-up">
+                <div className="flex items-center gap-5 w-full sm:w-auto overflow-hidden">
                   <input
                     name={item.id}
                     onChange={handleCheckbox}
@@ -167,20 +167,38 @@ function App() {
                     checked={item.isCompleted}
                     className="cursor-pointer"
                   />
-                  <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
-                  <div className={`priority ${item.priority === 'Important' ? 'text-red-600' : ''}`}>
+                  <div className={`flex-1 ${item.isCompleted ? "line-through" : ""} overflow-hidden truncate`} title={item.todo}>
+                    {item.todo}
+                  </div>
+                </div>
+
+                {/* Aligning important text, date and buttons to the right */}
+                <div className="flex gap-3 items-center ml-auto">
+                  <div className={`priority text-sm ${item.priority === 'Important' ? 'text-red-600 font-bold' : ''}`}>
                     {item.priority}
                   </div>
                   <div className="dueDate text-gray-500">
                     {item.dueDate ? `Due: ${item.dueDate}` : ''}
                   </div>
-                </div>
-                <div className="buttons flex h-full">
-                  <button onClick={() => { handleEdit(item.id) }} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1 animate-pop'>
-                    Edit
+                  {/* Edit SVG */}
+                  <button 
+                    onClick={() => { handleEdit(item.id) }} 
+                    className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md'>
+                    {/* High-quality edit SVG */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 20h9"></path>
+                      <path d="M16 4l4 4-8 8-4-4 8-8z"></path>
+                    </svg>
                   </button>
-                  <button onClick={() => handleConfirmDelete(item.id)} className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md mx-1 animate-pop'>
-                    Delete
+
+                  {/* Delete SVG */}
+                  <button 
+                    onClick={() => handleConfirmDelete(item.id)} 
+                    className='bg-violet-800 hover:bg-violet-950 p-2 py-1 text-sm font-bold text-white rounded-md'>
+                    {/* High-quality delete SVG */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                   </button>
                 </div>
               </div>
